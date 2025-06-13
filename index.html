@@ -138,5 +138,19 @@
 <script src="data.js"></script>
 <script src="index.js"></script>
 
+
+<script>/* 全螢幕 */
+document.addEventListener("DOMContentLoaded", function () {
+  const elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
+});
+</script>
+
 </body>
 </html>
