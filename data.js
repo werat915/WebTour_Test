@@ -90,8 +90,8 @@ var APP_DATA = {
         {
           "yaw": 2.0630316245314635,
           "pitch": 0.1856915284669256,
-          "title": "Title",
-          "text": "<div style='width:100%;max-width:480px;aspect-ratio:16/9;overflow:hidden;'><iframe src='https://www.youtube.com/embed/IxX_QHay02M' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen style='width:100%;height:100%;border:none;'></iframe></div>"
+          "title": "",
+          "text": "<div style='display:flex; justify-content:center; align-items:center; padding:10px 0;'><iframe src='https://www.youtube.com/embed/IxX_QHay02M' style='border:none; display:block; max-width:100%; height:auto;' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>"
         }
       ]
     },
