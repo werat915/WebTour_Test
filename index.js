@@ -345,10 +345,25 @@
     };
 
     // Show content when hotspot is clicked.
-    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
+    wrapper.querySelector('.info-hotspot-header').addEventListener('click', function() {
+  toggle();
+
+  var iframe = modal.querySelector('iframe');
+  if (iframe) {
+    iframe.src = iframe.src;
+  }
+});
 
     // Hide content when close icon is clicked.
-    modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
+    modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', function() {
+  toggle();
+
+  // 停止影片播放：找到 modal 中的 iframe，重置 src
+  var iframe = modal.querySelector('iframe');
+  if (iframe) {
+    iframe.src = iframe.src;
+  }
+});
 
     // Prevent touch and scroll events from reaching the parent element.
     // This prevents the view control logic from interfering with the hotspot.
