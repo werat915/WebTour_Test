@@ -86,7 +86,14 @@ var APP_DATA = {
           "target": "15-16_"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {
+          "yaw": 2.0630316245314635,
+          "pitch": 0.1856915284669256,
+          "title": "Title",
+          "text": "<iframe width='300' height='169' src='https://www.youtube.com/embed/IxX_QHay02M' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+        }
+      ]
     },
     {
       "id": "2-3_",
