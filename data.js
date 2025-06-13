@@ -91,7 +91,7 @@ var APP_DATA = {
           "yaw": 2.0630316245314635,
           "pitch": 0.1856915284669256,
           "title": "Title",
-          "text": "<iframe width='300' height='169' src='https://www.youtube.com/embed/IxX_QHay02M' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+          "text": "<div style='width:100%;max-width:480px;aspect-ratio:16/9;overflow:hidden;'><iframe src='https://www.youtube.com/embed/IxX_QHay02M' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen style='width:100%;height:100%;border:none;'></iframe></div>"
         }
       ]
     },
