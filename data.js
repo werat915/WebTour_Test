@@ -87,12 +87,13 @@ var APP_DATA = {
         }
       ],
       "infoHotspots": [
-        {
-          "yaw": 2.0630316245314635,
-          "pitch": 0.1856915284669256,
-          "title": "",
-          "text": "<div style='display:flex; justify-content:center; align-items:center; padding:10px 0;'><iframe src='https://www.youtube.com/embed/IxX_QHay02M' style='border:none; display:block; max-width:100%; height:auto;' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>"
-        }
+        //影片按鈕
+        //{
+          //"yaw": 2.0630316245314635,
+          //"pitch": 0.1856915284669256,
+          //"title": "",
+          //"text": "<div style='display:flex; justify-content:center; align-items:center; padding:10px 0;'><iframe src='https://www.youtube.com/embed/IxX_QHay02M' style='border:none; display:block; max-width:100%; height:auto;' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>"
+        //}
       ]
     },
     {
