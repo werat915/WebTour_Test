@@ -69,7 +69,10 @@
     }
   };
 
-  // === 加入 DeviceOrientation 控制 ===
+  // Initialize viewer.
+  var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+
+   // === 加入 DeviceOrientation 控制 ===
 if (typeof DeviceOrientationControlMethod === 'function') {
   var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
 
@@ -92,9 +95,6 @@ if (typeof DeviceOrientationControlMethod === 'function') {
   }
 }
 
-  // Initialize viewer.
-  //var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
-  //viewer.controls().enableMethod('deviceOrientation');
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
