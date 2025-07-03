@@ -74,7 +74,7 @@
   viewer.controls().registerMethod('drag', new Marzipano.DragControlMethod());
 
 
-  // === 加入 DeviceOrientation 控制 ===
+ // === 加入 DeviceOrientation 控制 ===
 if (typeof DeviceOrientationControlMethod === 'function') {
   var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
 
@@ -91,15 +91,11 @@ if (typeof DeviceOrientationControlMethod === 'function') {
           }
         }).catch(console.error);
       } else {
-        deviceOrientationControlMethod.enable(); // Android
+        deviceOrientationControlMethod.enable(); // Android 或其他裝置
       }
     }, { once: true });
   }
 }
-
-  var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
-viewer.controls().registerMethod('deviceOrientation', deviceOrientationControlMethod);
-viewer.controls().enableMethod('deviceOrientation');
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
