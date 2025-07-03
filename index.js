@@ -68,31 +68,32 @@
       mouseViewMode: data.settings.mouseViewMode
     }
   };
-
-  if (window.DeviceOrientationEvent) {
-    var deviceOrientationControlMethod = new Marzipano.DeviceOrientationControlMethod();
-
-    if (deviceOrientationControlMethod.supported()) {
-      viewer.controls().registerMethod('deviceOrientation', deviceOrientationControlMethod);
-
-      document.body.addEventListener("click", function() {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-          DeviceOrientationEvent.requestPermission()
-            .then(function(response) {
-              if (response === 'granted') {
-                deviceOrientationControlMethod.enable();
-              }
-            })
-            .catch(console.error);
-        } else {
-          deviceOrientationControlMethod.enable();
-        }
-      }, { once: true });
-    }
-  }
-
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+
+  // === 加入 DeviceOrientation 控制 ===
+if (typeof DeviceOrientationControlMethod === 'function') {
+  var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
+
+  if (deviceOrientationControlMethod.supported && deviceOrientationControlMethod.supported()) {
+    viewer.controls().registerMethod('deviceOrientation', deviceOrientationControlMethod);
+    viewer.controls().enableMethod('deviceOrientation');
+
+    // iOS 裝置需要求權限
+    document.body.addEventListener("click", function () {
+      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission().then(function (response) {
+          if (response === 'granted') {
+            deviceOrientationControlMethod.enable();
+          }
+        }).catch(console.error);
+      } else {
+        deviceOrientationControlMethod.enable(); // Android
+      }
+    }, { once: true });
+  }
+}
+
   var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
 viewer.controls().registerMethod('deviceOrientation', deviceOrientationControlMethod);
 viewer.controls().enableMethod('deviceOrientation');
