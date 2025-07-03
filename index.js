@@ -93,8 +93,8 @@ if (typeof DeviceOrientationControlMethod === 'function') {
 }
 
   // Initialize viewer.
-  var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
-viewer.controls().enableMethod('deviceOrientation');
+  //var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+  //viewer.controls().enableMethod('deviceOrientation');
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
