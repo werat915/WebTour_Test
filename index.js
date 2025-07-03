@@ -69,6 +69,28 @@
     }
   };
 
+  if (window.DeviceOrientationEvent) {
+    var deviceOrientationControlMethod = new Marzipano.DeviceOrientationControlMethod();
+
+    if (deviceOrientationControlMethod.supported()) {
+      viewer.controls().registerMethod('deviceOrientation', deviceOrientationControlMethod);
+
+      document.body.addEventListener("click", function() {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+          DeviceOrientationEvent.requestPermission()
+            .then(function(response) {
+              if (response === 'granted') {
+                deviceOrientationControlMethod.enable();
+              }
+            })
+            .catch(console.error);
+        } else {
+          deviceOrientationControlMethod.enable();
+        }
+      }, { once: true });
+    }
+  }
+
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
