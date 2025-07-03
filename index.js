@@ -445,15 +445,16 @@ let gyroEnabled = true;
 document.getElementById('toggleViewBtn').addEventListener('click', function () {
   if (gyroEnabled) {
     viewer.controls().disableMethod('deviceOrientation');
-    viewer.controls().enableMethod('drag'); // 啟用滑動
+    viewer.controls().enableMethod('mouseView');
     alert('已切換為滑動控制');
   } else {
     viewer.controls().enableMethod('deviceOrientation');
-    viewer.controls().disableMethod('drag'); // 關閉滑動
+    viewer.controls().disableMethod('mouseView');
     alert('已切換為陀螺儀控制');
   }
   gyroEnabled = !gyroEnabled;
 });
+
 
 
   // Display the initial scene.
