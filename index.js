@@ -71,6 +71,9 @@
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
+  viewer.controls().registerMethod('drag', new Marzipano.DragControlMethod());
+
+
   // === 加入 DeviceOrientation 控制 ===
 if (typeof DeviceOrientationControlMethod === 'function') {
   var deviceOrientationControlMethod = new DeviceOrientationControlMethod();
@@ -413,6 +416,45 @@ viewer.controls().enableMethod('deviceOrientation');
     }
     return null;
   }
+
+  // --- 全螢幕切換功能 ---
+document.getElementById('fullscreenBtn').addEventListener('click', function () {
+  const elem = document.documentElement;
+  if (!document.fullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+});
+
+// --- 切換滑動 / 陀螺儀 ---
+let gyroEnabled = true;
+
+document.getElementById('toggleViewBtn').addEventListener('click', function () {
+  if (gyroEnabled) {
+    viewer.controls().disableMethod('deviceOrientation');
+    viewer.controls().enableMethod('drag'); // 啟用滑動
+    alert('已切換為滑動控制');
+  } else {
+    viewer.controls().enableMethod('deviceOrientation');
+    viewer.controls().disableMethod('drag'); // 關閉滑動
+    alert('已切換為陀螺儀控制');
+  }
+  gyroEnabled = !gyroEnabled;
+});
+
 
   // Display the initial scene.
   switchScene(scenes[0]);
